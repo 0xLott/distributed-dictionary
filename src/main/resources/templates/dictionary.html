@@ -22,16 +22,16 @@
 
         <section>
             <h4>Adicionar palavra</h4>
+            <form th:action="@{'/addEntry'}" method="post">
+                <p>Termo</p>
+                <input type="text" name="word">
 
-            <form action="">
-                <h5>Termo</h5>
-                <input type="text">
+                <p>Definição</p>
+                <input type="text" name="definition">
 
-                <h5>Definição</h5>
-                <textarea></textarea>
-
-                <button>Adicionar</button>
+                <button type="submit">Inserir</button>
             </form>
+
         </section>
 
         <section>
@@ -47,7 +47,7 @@
                     <td th:text="${entry.value}"></td>
                     <td>
                         <form th:action="@{'/deleteEntry'}" method="post">
-                            <input type="hidden" name="word" th:value="${entry.key}" />
+                            <input type="hidden" name="deletedWord" th:value="${entry.key}" />
                             <button type="submit">🗑️</button>
                         </form>
                     </td>

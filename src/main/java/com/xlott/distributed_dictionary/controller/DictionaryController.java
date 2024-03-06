@@ -26,11 +26,24 @@ public class DictionaryController {
         return "dictionary";
     }
 
-    @PostMapping("/deleteEntry")
-    public String deleteEntry(@RequestParam String word) {
+    @PostMapping("/addEntry")
+    public String addEntry(@RequestParam String word, String definition) {
 
         try {
-            dictionaryService.remove(word);
+            dictionaryService.add(word, definition);
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
+
+        // Redirecionar para página inicial
+        return "redirect:/dictionary";
+    }
+
+    @PostMapping("/deleteEntry")
+    public String deleteEntry(@RequestParam String deletedWord) {
+
+        try {
+            dictionaryService.remove(deletedWord);
         } catch (RuntimeException e) {
             System.out.println(e.getMessage());
         }
