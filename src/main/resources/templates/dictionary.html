@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dicionário</title>
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+</head>
+<body>
+    <main class="container-fluid">
+        <h1>Dicionário</h1>
+
+        <section>
+            <h4>🧙‍♀️ Buscar</h4>
+            <form action="">
+                <input type="text">
+                <button>Ir</button>
+            </form>
+        </section>
+
+        <section>
+            <h4>Adicionar palavra</h4>
+
+            <form action="">
+                <h5>Termo</h5>
+                <input type="text">
+
+                <h5>Definição</h5>
+                <textarea></textarea>
+
+                <button>Adicionar</button>
+            </form>
+        </section>
+
+        <section>
+            <h4>Ver dicionário</h4>
+            <table>
+                <tr>
+                    <th>Termo</th>
+                    <th>Definição</th>
+                    <th>Excluir</th>
+                </tr>
+                <tr th:each="entry : ${dictionary}">
+                    <td th:text="${entry.key}"></td>
+                    <td th:text="${entry.value}"></td>
+                    <td>
+                        <form th:action="@{'/deleteEntry'}" method="post">
+                            <input type="hidden" name="word" th:value="${entry.key}" />
+                            <button type="submit">🗑️</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </section>
+    </main>
+</body>
+</html>
