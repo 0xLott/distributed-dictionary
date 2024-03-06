@@ -52,5 +52,4 @@ public class DictionaryService {
             throw new RuntimeException("Erro: não foi possível retornar dicionário", e);
         }
     }
-
 }
