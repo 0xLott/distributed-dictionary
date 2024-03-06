@@ -13,15 +13,15 @@
         <h1>Dicionário</h1>
 
         <section>
-            <h4>🧙‍♀️ Buscar</h4>
-            <form action="">
-                <input type="text">
+            <h4>🔎 Buscar</h4>
+            <form th:action="@{'/lookUpEntry'}" method="get">
+                <input name="lookedUpWord" type="text">
                 <button>Ir</button>
             </form>
         </section>
 
         <section>
-            <h4>Adicionar palavra</h4>
+            <h4>➕ Adicionar palavra</h4>
             <form th:action="@{'/addEntry'}" method="post">
                 <p>Termo</p>
                 <input type="text" name="word">
@@ -34,7 +34,7 @@
         </section>
 
         <section>
-            <h4>Ver dicionário</h4>
+            <h4>📖 Ver dicionário</h4>
             <table>
                 <tr>
                     <th>Termo</th>

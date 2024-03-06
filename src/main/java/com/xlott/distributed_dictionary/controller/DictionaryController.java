@@ -26,9 +26,24 @@ public class DictionaryController {
         return "dictionary";
     }
 
+    @GetMapping("/lookUpEntry")
+    public String lookUp(Model model, @RequestParam String lookedUpWord) {
+        String result = null;
+
+        try {
+            result = dictionaryService.lookUp(lookedUpWord);
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
+
+        model.addAttribute("lookedUpWord", lookedUpWord);  // Update to "lookedUpWord"
+        model.addAttribute("definition", result);  // Update to "definition"
+        return "word_definition";
+    }
+
+
     @PostMapping("/addEntry")
     public String addEntry(@RequestParam String word, String definition) {
-
         try {
             dictionaryService.add(word, definition);
         } catch (RuntimeException e) {
@@ -41,7 +56,6 @@ public class DictionaryController {
 
     @PostMapping("/deleteEntry")
     public String deleteEntry(@RequestParam String deletedWord) {
-
         try {
             dictionaryService.remove(deletedWord);
         } catch (RuntimeException e) {

@@ -36,7 +36,7 @@ public class DictionaryService {
         }
     }
 
-    public String lookup(String word) {
+    public String lookUp(String word) {
         try {
             return dictionary.lookUp(word);
         } catch (Exception e) {

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Definição</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"/>
+</head>
+<body>
+    <main class="container-fluid">
+        <a th:href="@{'/dictionary'}">
+            <button>⬅️ Voltar</button>
+        </a>
+
+        <section>
+            <h4 th:text="${lookedUpWord}"></h4>
+            <p th:if="${definition != null}" th:text="${definition}"></p>
+        </section>
+    </main>
+</body>
+</html>
