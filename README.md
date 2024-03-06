@@ -1,6 +1,12 @@
-# Dicionário distribuído
+# distributed-dictionary
 
-## Instruções de execução
-1. Iniciar e aguardar execução do servidor a partir do arquivo `DictionaryServer.java`
-2. Iniciar aplicação Spring MVC a partir do arquivo `DistributedDictionaryApplication.java`
-3. Acesssar, por meio de um browser, a URL `http://localhost:8080`
+This repository contains a Java RMI (Remote Method Invocation) project demonstrating a client-server architecture for a dictionary in a distributed system, which allows client operations such as:
+- Searching for word meanings;
+- Adding new words; 
+- Removing existing words from the dictionary.
+
+### Execution instruction
+
+1. Start and wait for the server to run using `DictionaryServer.java` file
+2. Launch the Spring MVC application using `DistributedDictionaryApplication.java` file
+3. Access the URL `http://localhost:8080` through a web browser
