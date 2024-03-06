@@ -11,6 +11,8 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.TreeMap;
+import java.util.stream.Collectors;
 
 public class DictionaryServant extends UnicastRemoteObject implements Dictionary {
 
@@ -52,9 +54,13 @@ public class DictionaryServant extends UnicastRemoteObject implements Dictionary
         }
     }
 
+    /**
+     * Utiliza a estrutura de dados TreeMap para preservar a ordem alfabética das keys.
+     * @return Cópia ordenada do HashMap dictionary
+     */
     @Override
     public Map<String, String> getDictionary() throws RemoteException {
-        return this.dictionary;
+        return new TreeMap<>(this.dictionary);
     }
 
     private void loadFromJson(String filePath) throws IOException {
